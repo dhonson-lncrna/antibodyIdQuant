@@ -1,0 +1,10 @@
+name: antibodyIdQuant
+channels:
+   - bioconda
+   - conda-forge
+   - anaconda
+dependencies:
+   - python=3.11.11
+   - biopython=1.84
+   - pandas=2.2.3
+   - numpy=1.26.4
