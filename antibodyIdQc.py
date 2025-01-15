@@ -15,12 +15,12 @@ if __name__ == "__main__":
 
     # Collect barcode counts
     ocount = {}
-    with open('DHBioN_bcid_R1.fastq','r') as f:
+    with open(fastq,'r') as f:
         r = f.read()
         for i in ab_id.index:
             ocount[ab_id.loc[i,1]] = r.count(ab_id.loc[i,2])
     
-    with open('DHBioN_bcid_R1.fastq','r') as f:
+    with open(fastq,'r') as f:
         reads = len(list(SeqIO.parse(f,'fastq')))
 
     ocount['unidentified'] = reads - sum(ocount.values()) 
@@ -32,4 +32,4 @@ if __name__ == "__main__":
 
     date = datetime.today().strftime('%Y%m%d')
     fname = '_'.join([date,'oligoCounts.csv'])
-    df.to_csv(fname,sep='\t',index=False)
+    df.to_csv(fname,index=False)
